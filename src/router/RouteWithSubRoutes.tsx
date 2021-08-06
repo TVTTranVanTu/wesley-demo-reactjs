@@ -1,10 +1,10 @@
-import { Suspense } from "react";
-import { Redirect, Route } from "react-router-dom";
-import { IRoute } from "./routerConfix";
+import React, { Suspense } from 'react';
+import { Redirect, Route } from 'react-router-dom';
+import { IRoute } from './routerConfix';
+import { user } from '../App';
 
-const RouteWithSubRoutes = (route: IRoute) => {
-  const authenticated: boolean = false;
-  console.log(route);
+const RouteWithSubRoutes: React.FC<IRoute> = (route: IRoute) => {
+  const authenticated: boolean = user.authenticated;
 
   return (
     <Suspense fallback={route.fallback}>
@@ -15,20 +15,17 @@ const RouteWithSubRoutes = (route: IRoute) => {
             <Redirect to={route.redirect} />
           ) : route.private ? (
             authenticated ? (
-              route.component && (
-                <route.component {...props} routes={route.routes} />
-              )
+              route.component && <route.component {...props} routes={route.routes} />
             ) : (
               <Redirect to="/home/login" />
             )
           ) : (
-            route.component && (
-              <route.component {...props} routes={route.routes} />
-            )
+            route.component && <route.component {...props} routes={route.routes} />
           )
         }
       />
     </Suspense>
   );
 };
+
 export default RouteWithSubRoutes;

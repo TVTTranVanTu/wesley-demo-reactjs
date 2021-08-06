@@ -1,13 +1,13 @@
-import React from "react";
-import Footer from "../components/Footer";
-import Lessons from "../components/Lesson";
-import Plugin from "../components/Plugin";
+import React from 'react';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Lessons from '../components/Lesson';
+import Plugin from '../components/Plugin';
 
 const Home: React.FC = () => {
-  console.log("this home page");
-
   return (
     <div className="home">
+      <Header />
       <Lessons />
       <Plugin />
       <Footer />

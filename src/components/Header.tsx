@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { ThemeContext } from "../contexts/ThemeContext";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 const Header: React.FC = () => {
   const [fixed, setFixed] = useState<boolean>(false);
@@ -19,18 +19,13 @@ const Header: React.FC = () => {
     }
   };
   useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent);
+    window.addEventListener('scroll', listenScrollEvent);
 
-    return () => window.removeEventListener("scroll", listenScrollEvent);
+    return () => window.removeEventListener('scroll', listenScrollEvent);
   }, []);
   return (
     <div className="header">
-      <div
-        className={`${
-          fixed === true ? "navbar sticky fixed" : "navbar sticky"
-        }`}
-        style={style}
-      >
+      <div className={`${fixed === true ? 'navbar sticky fixed' : 'navbar sticky'}`} style={style}>
         <div className="logo">
           <Link to="/home">Reactjs-Training</Link>
         </div>

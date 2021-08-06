@@ -1,17 +1,18 @@
-import React from "react";
-import "./scss/main.scss";
-import routes from "./router/routerConfix";
-import Router from "./router/Router";
-import Header from "./components/Header";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import './scss/main.scss';
+import Router from './router/Router';
+import { routes } from './router/routerConfix';
+
+export const user = {
+  authenticated: false,
+};
 
 const App: React.FC = () => {
-  console.log(routes);
-
   return (
-    <div>
-      <Header />
+    <BrowserRouter>
       <Router routes={routes} />
-    </div>
+    </BrowserRouter>
   );
 };
 
